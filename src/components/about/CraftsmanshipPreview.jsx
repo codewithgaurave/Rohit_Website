@@ -17,7 +17,7 @@ const craftSteps = [
     desc: "Stones are positioned and secured with extraordinary attention.",
     image: "/rohit_rings.jpg",
     speed: [0, -100],
-    mt: "md:mt-32"
+    mt: "mt-0"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const craftSteps = [
     desc: "Each surface is refined until every detail feels complete.",
     image: "/rohit_hero.jpg",
     speed: [0, -150],
-    mt: "md:mt-16"
+    mt: "mt-0"
   }
 ];
 
