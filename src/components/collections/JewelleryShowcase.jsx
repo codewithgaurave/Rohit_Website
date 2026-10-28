@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import { FaArrowRightLong, FaWhatsapp } from 'react-icons/fa6';
+import { newCollectionItems } from '../../data/newCollection';
 
 // Dynamically import all images from gold and silver folders
 const silverModules = import.meta.glob('../../assets/silver/*.{jpeg,jpg,png,webp}', { eager: true });
@@ -20,6 +21,7 @@ const formatItems = (modules, category) => {
 };
 
 const allItems = [
+  ...newCollectionItems,
   ...formatItems(goldModules, 'Gold'),
   ...formatItems(silverModules, 'Silver')
 ];
@@ -39,13 +41,13 @@ export default function JewelleryShowcase() {
   const handleWhatsAppClick = (e, item) => {
     e.preventDefault();
     
-    const whatsappText = `Hello Rohit Jewellers! 💎\n\nI am interested in this beautiful piece from your collection:\n\n*${item.name}*\nCollection: ${item.collection}\nMaterial: ${item.material}\n\nCould you please share more details about pricing and availability?`;
+    const whatsappText = `Hello Rohit Jewellers! 💎\n\nI am interested in this beautiful piece from your collection:\n\n*${item.name}*\nCollection: ${item.collection}\nMaterial: ${item.material}\n${item.id ? `Item Code: ${item.id}\n` : ''}\nCould you please share more details about pricing and availability?`;
     
     const whatsappUrl = `https://wa.me/919336070620?text=${encodeURIComponent(whatsappText)}`;
     window.open(whatsappUrl, '_blank');
   };
 
-  const categories = ['All', 'Gold', 'Silver'];
+  const categories = ['All', 'New Collection', 'Gold', 'Silver'];
 
   return (
     <section id="showcase" className="w-full bg-background py-16 md:py-24" ref={containerRef}>
@@ -127,6 +129,16 @@ export default function JewelleryShowcase() {
                       className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                       loading="lazy"
                     />
+
+                    {/* Tag Badge */}
+                    {item.tag && (
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="px-2.5 py-1 bg-black/70 backdrop-blur-md border border-gold/40 rounded-full text-[0.6rem] font-mono tracking-widest text-gold uppercase shadow">
+                          {item.tag}
+                        </span>
+                      </div>
+                    )}
+
                     {/* Elegant overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-primaryDark/60 via-primaryDark/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     

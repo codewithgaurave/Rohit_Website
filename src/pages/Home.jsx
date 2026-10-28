@@ -1,5 +1,6 @@
 import Hero from '../components/Hero';
 import BrandStatement from '../components/BrandStatement';
+import NewCollection from '../components/NewCollection';
 import Collections from '../components/Collections';
 import SignaturePieces from '../components/SignaturePieces';
 import CraftsmanshipFeature from '../components/CraftsmanshipFeature';
@@ -14,6 +15,7 @@ export default function Home() {
       <ScrollToTop />
       <Hero />
       <BrandStatement />
+      <NewCollection />
       <Collections />
       <SignaturePieces />
       <CraftsmanshipFeature />

@@ -1,49 +1,50 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '../../utils/cn';
+import { newCollectionItems } from '../../data/newCollection';
 
 const switcherData = [
   {
     id: 1,
     num: "01",
-    title: "Bridal",
-    desc: "Ornate pieces created for ceremonies, traditions and unforgettable celebrations.",
-    image: "/rohit_storefront.jpg"
+    title: "New Arrivals",
+    desc: "Exclusively unveiled 2026 collection celebrating royal Indian artistry and hallmarked purity.",
+    image: newCollectionItems[0]?.image || "/rohit_bridal.jpg"
   },
   {
     id: 2,
     num: "02",
-    title: "Silver",
-    desc: "Exquisitely crafted sterling silver pieces reflecting modern elegance and tradition.",
-    image: "/rohit_earrings.jpg"
+    title: "Bridal",
+    desc: "Ornate pieces created for ceremonies, traditions and unforgettable celebrations.",
+    image: newCollectionItems[1]?.image || "/rohit_bridal.jpg"
   },
   {
     id: 3,
     num: "03",
-    title: "Gold",
-    desc: "Warm, enduring and deeply connected to tradition.",
-    image: "/rohit_storefront.jpg"
+    title: "Gold Kadas",
+    desc: "Warm, enduring and deeply connected to tradition with fine hand-carved filigree.",
+    image: newCollectionItems[4]?.image || "/rohit_gold_bangles.jpg"
   },
   {
     id: 4,
     num: "04",
     title: "Necklaces",
-    desc: "Statement centerpieces designed to frame the collarbone beautifully.",
-    image: "/rohit_storefront.jpg"
+    desc: "Statement centerpieces designed to frame the collarbone with majesty and grace.",
+    image: newCollectionItems[5]?.image || "/rohit_necklace.jpg"
   },
   {
     id: 5,
     num: "05",
     title: "Earrings",
-    desc: "From delicate studs to cascading drops, crafted to capture light.",
-    image: "/rohit_everyday.jpg"
+    desc: "From delicate studs to cascading jhumkas, crafted to catch light at every angle.",
+    image: newCollectionItems[2]?.image || "/rohit_earrings.jpg"
   },
   {
     id: 6,
     num: "06",
-    title: "Rings",
-    desc: "Symbols of commitment, milestones and individual style.",
-    image: "/rohit_bridal.jpg"
+    title: "Silver & Rings",
+    desc: "Symbols of commitment, milestone celebrations and bespoke silver individual style.",
+    image: "/rohit_rings.jpg"
   }
 ];
 

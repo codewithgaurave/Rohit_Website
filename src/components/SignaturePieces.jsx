@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaArrowLeftLong, FaArrowRightLong, FaWhatsapp } from 'react-icons/fa6';
+import { newCollectionHighlights } from '../data/newCollection';
 
 // Dynamically import images from gold and silver folders
 const silverModules = import.meta.glob('../assets/silver/*.{jpeg,jpg,png,webp}', { eager: true });
@@ -18,9 +19,11 @@ const formatItems = (modules, category) => {
 const goldItems = formatItems(goldModules, 'Gold');
 const silverItems = formatItems(silverModules, 'Silver');
 
-// Interleave the first 8 gold and 8 silver items for the signature carousel
+// Interleave new collection highlights, gold, and silver items for the signature carousel
 const signatureItems = [];
-for (let i = 0; i < 8; i++) {
+const maxCount = Math.max(newCollectionHighlights.length, 6);
+for (let i = 0; i < maxCount; i++) {
+  if (newCollectionHighlights[i]) signatureItems.push(newCollectionHighlights[i]);
   if (goldItems[i]) signatureItems.push(goldItems[i]);
   if (silverItems[i]) signatureItems.push(silverItems[i]);
 }
